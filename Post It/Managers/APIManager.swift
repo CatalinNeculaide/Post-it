@@ -30,24 +30,24 @@ class APIManagers {
         
     }
     
-    func sendMessage(message: String, user_id: String?, completionHandler: @escaping (Bool) -> Void){
+    func sendMessage(message: String, token: String?, completionHandler: @escaping (Bool, Error?) -> Void){
         var param = [String:Any]()
         let url = "https://intern-hackathon.mready.net/api/posts"
         
-        if user_id != nil {
-            param = ["message": message, "user_id": user_id!] as [String:Any]
+        if token != nil {
+            param = ["message": message, "authorization": token!] as [String:Any]
         } else {
             param = ["message": message] as [String:Any]
         }
         
-        AF.request(url, method: .post, parameters: param).responseJSON { (dataResponse) in
+        AF.request(url, method: .post, parameters: param, headers: ["Authorization":"Bearer \(token!)"]).responseJSON { (dataResponse) in
             
             if let _ = dataResponse.value{
-                completionHandler(true)
+                completionHandler(true, nil)
                 return
             }
             print("Error: \(dataResponse.error!)")
-            completionHandler(false)
+            completionHandler(false, dataResponse.error)
         }
     }
     
@@ -55,7 +55,7 @@ class APIManagers {
         var param = [String:Any]()
         let url = "https://intern-hackathon.mready.net/api/auth/register"
         
-        param = ["Username": username, "Password": password, "Diplay_name": displayName] as [String:Any]
+        param = ["username": username, "password": password, "display_name": displayName] as [String:Any]
         
         AF.request(url, method: .post, parameters: param).responseJSON { (dataResponse) in
             if let _ = dataResponse.value{
@@ -78,6 +78,7 @@ class APIManagers {
         
         AF.request(url, method: .post, parameters: param).responseJSON { (dataResponse) in
             if let data = dataResponse.value {
+                debugPrint(dataResponse.result)
                 let json = JSON(data)
                 completionHandler(true, dataResponse.error, json["data"])
                 return

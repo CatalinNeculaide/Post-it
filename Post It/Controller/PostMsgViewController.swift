@@ -25,15 +25,18 @@ class PostMsgViewController: UIViewController {
         if textFieldInput.text != ""{
             sendMessage()
         }
+        
     }
     
     func sendMessage(){
         let message = textFieldInput.text!
-        APIManagers.shared.sendMessage(message: message, user_id: user.token) { (isSuccess) in
+        APIManagers.shared.sendMessage(message: message, token: user.token) { (isSuccess, error) in
             if isSuccess == true{
                 print("Send message successful")
+                _ = self.navigationController?.popViewController(animated: true)
             } else {
                 print("Send message Failed")
+                UIAlertController.showOKAlert(on: self, title: "Oops, something went wrong", message: "There was an error while sending the message: \(error?.localizedDescription ?? "")")
             }
         }
     }

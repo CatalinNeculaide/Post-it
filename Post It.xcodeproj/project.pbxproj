@@ -15,6 +15,7 @@
 		A404410C263469C5003369F9 /* PostMsgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404410B263469C5003369F9 /* PostMsgViewController.swift */; };
 		A404410F263477DC003369F9 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404410E263477DC003369F9 /* Users.swift */; };
 		A404411226354864003369F9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404411126354864003369F9 /* RegisterViewController.swift */; };
+		A404411A263575EB003369F9 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4044119263575EB003369F9 /* UIAlertControllerExtension.swift */; };
 		A4274387263403A6005B2097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4274386263403A6005B2097 /* AppDelegate.swift */; };
 		A4274389263403A6005B2097 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4274388263403A6005B2097 /* SceneDelegate.swift */; };
 		A427438B263403A6005B2097 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427438A263403A6005B2097 /* LoginViewController.swift */; };
@@ -33,6 +34,7 @@
 		A404410B263469C5003369F9 /* PostMsgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMsgViewController.swift; sourceTree = "<group>"; };
 		A404410E263477DC003369F9 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		A404411126354864003369F9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A4044119263575EB003369F9 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		A4274383263403A6005B2097 /* Post It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Post It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4274386263403A6005B2097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4274388263403A6005B2097 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				A427438F263403A8005B2097 /* Assets.xcassets */,
 				A4274391263403A8005B2097 /* LaunchScreen.storyboard */,
 				A4274394263403A8005B2097 /* Info.plist */,
+				A4044119263575EB003369F9 /* UIAlertControllerExtension.swift */,
 			);
 			path = "Post It";
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				A404410C263469C5003369F9 /* PostMsgViewController.swift in Sources */,
 				A40440FB26341E04003369F9 /* Message.swift in Sources */,
 				A4274387263403A6005B2097 /* AppDelegate.swift in Sources */,
+				A404411A263575EB003369F9 /* UIAlertControllerExtension.swift in Sources */,
 				A4044103263445CD003369F9 /* FeedViewController.swift in Sources */,
 				A4274389263403A6005B2097 /* SceneDelegate.swift in Sources */,
 				A404410826345152003369F9 /* MessageCell.swift in Sources */,

@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.4.3)
+  - netfox (1.19.0)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - netfox
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - netfox
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  netfox: efeec1d23406df6cd605212f09a40957bb5654eb
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 40644096301acdc6e48c35d510d2e0a0712ffec7
+PODFILE CHECKSUM: 527620c68dcd347edb8556849fbdec7d4cc00f12
 
 COCOAPODS: 1.10.1

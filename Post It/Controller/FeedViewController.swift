@@ -10,22 +10,31 @@ import SwiftyJSON
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let refreshControl = UIRefreshControl()
+    
     var user = Users()
     
     var messages: [Message] = [Message]()
     
     @IBOutlet weak var feedTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        getAllMessages()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.backButtonTitle = ""
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector (refreshTableView))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_nav_logout"), style: .done, target: self, action: #selector(logout))
 
         feedTableView.delegate = self
         feedTableView.dataSource = self
+
+    }
+    
+    @objc func refreshTableView(){
         getAllMessages()
-        feedTableView.reloadData()
     }
     
     func getAllMessages(){
@@ -39,6 +48,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func configureJSON(jsons: [JSON]){
+        messages = []
         for json in jsons {
             let message = Message()
             message.configure(json: json)
@@ -60,6 +70,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
         
     }
+    
+    
     
     @objc func logout(){
         _ = navigationController?.popToRootViewController(animated: true)

@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         APIManagers.shared.loginUser(username: username, password: password) { (isSuccess, error, json) in
             if isSuccess == true {
                 self.user.configure(json: json!)
-                
+                debugPrint(self.user.token)
                 if self.user.username == username{
                     print("Login Successfully")
                     completionHandler(true)
@@ -50,15 +50,11 @@ class LoginViewController: UIViewController {
                 if (isSuccess && self.usernameTextField.text == self.user.username){
                     self.performSegue(withIdentifier: "segueToFeed", sender: self)
                 } else {
-                    let ac = UIAlertController(title: "Oops, something went wrong", message: "Idk what went wrong!", preferredStyle: .alert)
-                    ac.addAction(UIAlertAction(title: "Ok", style: .default))
-                    self.present(ac,animated: true)
+                    UIAlertController.showOKAlert(on: self, title: "Oops, something went wrong", message: "Check internet connection")
                 }
             }
         } else {
-            let ac = UIAlertController(title: "Oops, something went wrong", message: "You need to fill username and password to login!", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(ac,animated: true)
+            UIAlertController.showOKAlert(on: self, title: "Oops, something went wrong", message: "You need to fill username and password to login!")
         }
         
     }

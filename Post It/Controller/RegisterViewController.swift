@@ -31,15 +31,11 @@ class RegisterViewController: UIViewController {
                 _ = navigationController?.popToRootViewController(animated: true)
                 
             } else {
-                let ac = UIAlertController(title: "Oops, something went wrong", message: "You need to repeat the passwords! They don't match!", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(ac,animated: true)
+                UIAlertController.showOKAlert(on: self, title: "Oops, something went wrong", message: "Passwords need to match!")
             }
             
         } else {
-            let ac = UIAlertController(title: "Oops, something went wrong", message: "You need to fill all TextFields", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Ok", style: .default))
-            present(ac,animated: true)
+            UIAlertController.showOKAlert(on: self, title: "Oops, something went wrong", message: "You need to fill all TextFields")
         }
     }
     
@@ -50,12 +46,7 @@ class RegisterViewController: UIViewController {
     func registerUser(username: String, password: String, displayName: String){
         APIManagers.shared.registerUser(username: username, password: password, displayName: displayName) { (isSuccess, error, json) in
             if isSuccess == true {
-                let user = Users()
-                user.configure(json: json!)
-                
-                if user.username == username && user.displayName == displayName{
-                    print("User Registered Successfully")
-                }
+                print("User Registered Successfully")
                 
             } else {
                 print("Register failed!")
